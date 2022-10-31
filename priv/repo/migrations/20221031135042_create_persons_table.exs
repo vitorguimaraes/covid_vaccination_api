@@ -3,7 +3,7 @@ defmodule CovidVaccinationApi.Repo.Migrations.CreatePersonsTable do
 
   def change do
     create table :persons do
-      add :name, :string, size: 100
+      add :name, :string, size: 150
       add :birth, :date
       add :cpf, :string, size: 11
       add :mother_name, :string, size: 100
