@@ -10,6 +10,10 @@ import Config
 config :covid_vaccination_api,
   ecto_repos: [CovidVaccinationApi.Repo]
 
+config :covid_vaccination_api, CovidVaccinationApi.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
 # Configures the endpoint
 config :covid_vaccination_api, CovidVaccinationApiWeb.Endpoint,
   url: [host: "localhost"],
