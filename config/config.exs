@@ -10,7 +10,7 @@ import Config
 config :covid_vaccination_api,
   ecto_repos: [CovidVaccinationApi.Repo]
 
-config :project_name, Project.Repo,
+config :covid_vaccination_api, CovidVaccinationApi.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
