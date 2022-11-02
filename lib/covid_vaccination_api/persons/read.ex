@@ -4,7 +4,7 @@ defmodule CovidVaccinationApi.Persons.Read do
   def by_id(uuid) do
     case Repo.get(Person, uuid) do
       nil -> {:error, Error.build_person_not_found()}
-      person -> {:ok, person}
+      person_schema -> {:ok, person_schema}
     end
   end
 end
