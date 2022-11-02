@@ -9,5 +9,5 @@ defmodule CovidVaccinationApi.Persons.Create do
   end
 
   defp handle_insert({:ok, %Person{}} = result), do: result
-  defp handle_insert({:error, result}), do: {:error, Error.build(:bad_request, result)}
+  defp handle_insert({:error, changeset}), do: {:error, Error.build(:bad_request, changeset)}
 end
