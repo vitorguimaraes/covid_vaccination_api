@@ -3,7 +3,7 @@ defmodule CovidVaccinationApi.Persons.Update do
 
   def call(%{"id" => id} = fields) do
     case Repo.get(Person, id) do
-      nil -> {:error, Error.build_user_not_found()}
+      nil -> {:error, Error.build_person_not_found()}
       person -> do_update(person, fields)
     end
   end
