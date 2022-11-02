@@ -4,7 +4,7 @@ defmodule CovidVaccinationApi.Persons.Delete do
   def call(uuid) do
     case Repo.get(Person, uuid) do
       nil -> {:error, Error.build_person_not_found()}
-      person -> Repo.delete(person)
+      person_schema -> Repo.delete(person_schema)
     end
   end
 end
