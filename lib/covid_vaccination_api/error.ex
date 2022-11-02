@@ -10,5 +10,5 @@ defmodule CovidVaccinationApi.Error do
     }
   end
 
-  def build_user_not_found, do: build(:not_found, "user not found")
+  def build_person_not_found, do: build(:not_found, "person not found")
 end
