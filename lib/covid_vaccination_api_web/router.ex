@@ -1,5 +1,6 @@
 defmodule CovidVaccinationApiWeb.Router do
   use CovidVaccinationApiWeb, :router
+  alias CovidVaccinationApiWeb.Plugs.UUIDChecker
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -12,6 +13,7 @@ defmodule CovidVaccinationApiWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug UUIDChecker
   end
 
   scope "/", CovidVaccinationApiWeb do
