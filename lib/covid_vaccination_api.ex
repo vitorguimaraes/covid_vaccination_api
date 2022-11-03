@@ -1,9 +1,11 @@
 defmodule CovidVaccinationApi do
-  @moduledoc """
-  CovidVaccinationApi keeps the contexts that define your domain
-  and business logic.
+  alias CovidVaccinationApi.Persons.Create, as: PersonCreate
+  alias CovidVaccinationApi.Persons.Read, as: PersonRead
+  alias CovidVaccinationApi.Persons.Update, as: PersonUpdate
+  alias CovidVaccinationApi.Persons.Delete, as: PersonDelete
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate create_person(params), to: PersonCreate, as: :call
+  defdelegate read_person_by_id(uuid), to: PersonRead, as: :by_id
+  defdelegate update_person(params), to: PersonUpdate, as: :call
+  defdelegate delete_person(uuid), to: PersonDelete, as: :call
 end
