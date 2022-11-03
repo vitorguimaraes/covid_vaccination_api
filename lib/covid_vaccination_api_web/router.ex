@@ -15,9 +15,10 @@ defmodule CovidVaccinationApiWeb.Router do
   end
 
   scope "/", CovidVaccinationApiWeb do
-    pipe_through :browser
+    pipe_through :api
 
     get "/", PageController, :index
+    resources "/persons", PersonsController, except: [:edit, :new]
   end
 
   # Other scopes may use custom stacks.
