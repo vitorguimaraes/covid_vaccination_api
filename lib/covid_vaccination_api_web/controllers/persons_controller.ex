@@ -6,6 +6,7 @@ defmodule CovidVaccinationApiWeb.PersonsController do
     with {:ok, %Person{} = person} <- CovidVaccinationApi.create_person(params) do
       conn
       |> put_status(:created)
+      |> render("create.json", person: person)
     end
   end
 
@@ -13,6 +14,7 @@ defmodule CovidVaccinationApiWeb.PersonsController do
     with {:ok, %Person{} = person} <- CovidVaccinationApi.read_person_by_id(uuid) do
       conn
       |> put_status(:ok)
+      |> render("person.json", person: person)
     end
   end
 
@@ -20,6 +22,7 @@ defmodule CovidVaccinationApiWeb.PersonsController do
     with {:ok, %Person{} = person} <- CovidVaccinationApi.update_person(params) do
       conn
       |> put_status(:ok)
+      |> render("person.json", person: person)
     end
   end
 
@@ -27,6 +30,7 @@ defmodule CovidVaccinationApiWeb.PersonsController do
     with {:ok, %Person{}} <- CovidVaccinationApi.delete_person(uuid) do
       conn
       |> put_status(:no_content)
+      |> text("")
     end
   end
 end
