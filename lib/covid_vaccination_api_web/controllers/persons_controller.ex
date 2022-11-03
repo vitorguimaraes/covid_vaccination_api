@@ -1,6 +1,9 @@
 defmodule CovidVaccinationApiWeb.PersonsController do
   use CovidVaccinationApiWeb, :controller
   alias CovidVaccinationApi.Person
+  alias CovidVaccinationApiWeb.FallbackController
+
+  action_fallback FallbackController
 
   def create(conn, params) do
     with {:ok, %Person{} = person} <- CovidVaccinationApi.create_person(params) do
